@@ -1,0 +1,53 @@
+<font face="Arial,Lucida,Comic Sans MS,Ventana,Times">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="description" content="Publications">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en] (WinNT; U) [Netscape]">
+   <title>ProfDP Project</title>
+</head>
+<body>
+<script language="JavaScript" src="header.js"></script>
+<strong><FONT size=5em color=#115740>ProfDP: A Novel Differential, Data-centric Profiler tyat Guides Data Placement in Heterogeneous Memory Systems (under support of NSF 1618620)</FONT></strong>
+<br>
+<hr style="border-top: 2px dotted #115740;"/>
+New memory technologies, such as non-volatile memory and stacked memory, have reformed the memory hierarchies in modern and emerging computer architectures. It becomes common to see memories of different types integrated into the same system, as known as heterogeneous memory. Typically, a heterogeneous memory system consists of a small fast component and a large slow component. This encourages new style of data processing and exposes developers with a new problem: given two memory types, how shall we redesign applications to benefit from this memory arrangement and decide on the efficient data placement? Existing methods perform detailed memory access pattern analysis to guide data placement. However, these methods are heavyweight and ignore the interactions between software and hardware.
+To address these issues, we develop ProfDP, a lightweight profiler that employs differential data-centric analysis to provide intuitive guidance for data placement in heterogeneous memory. Evaluated with a number of parallel benchmarks running on a state-of-the-art emulator and a real machine with heterogeneous memory, we show that ProfDP is able to guide nearly-optimal data placement to maximize performance with minimum programming efforts.
+<hr style="border-top: 2px dotted #115740;"/>
+<br>
+<h2><Font color=red>Unique Features in ProfDP</font></h2>
+<ul>
+<li>
+Lightweight: There is no heavyweight instrumentation required to memory operations.
+</li>
+<li>
+Accurate: ProfDP directly uses measurement instead of pattern analysis to guide data placement.
+</li>
+<li>
+Informative: ProfDP performs data-centric analysis, which guides the placement of data objects on a high level.
+</li>
+</ul>
+<hr style="border-top: 2px dashed #115740;"/>
+<br>
+<h2><Font color=#115740>Project Details</font></h2>
+<ul>
+<li>
+<strong><Font Color>[Technique Summary]</Font></strong>
+ProfDP uses two techniques: (1) Performance monitoring units (PMU) available in modern CPU processors and (2) differential analysis across multiple runs. ProfDP uses address sampling in PMUs to compute a new metric --- the average memory latency (in CPU cycles) per sampled memory load operation. On the system with heterogeneous memory, ProfDP first runs the program with all data in the fast memory and then runs it with all data in the slow memory. By comparing the two profiles (called differential analysis), ProfDP can identify which code is more sensitive to fast memory. Furthermore, ProfDP associate this metric with data objects (static or heap data) via the data-centric profiling. ProfDP can also tell which data objects are more sensitive to fast/slow memory. ProfDP then only recommend to place the sensitive data objects to the fast memory.
+</li>
+<br> 
+<li>
+<strong><Font Color>[Source Code]</Font></strong> <a href="https://github.com/HPCToolkit/hpctoolkit/tree/hpctoolkit-datacentric">https://github.com/HPCToolkit/hpctoolkit/tree/hpctoolkit-datacentric</a>
+<br>
+ProfDP is built atop HPCToolkit. It is currently in a branch of HPCToolkit, which will be integrated into the trunk soon.
+</li>
+<br> 
+<li>
+<strong><Font Color>[Related Paper]</Font></strong>
+"ProfDP: A Lightweight Profiler to Guide Data Placement in Heterogeneous Memory Systems", Shasha Wen, Lucy Cherkasova, Felix Xiaozhu Lin, Xu Liu, The 32nd ACM International Conference on Supercomputing, Jun 12-15th, 2018, Beijing China. Acceptance ratio: 18.7% (36/193).
+</li>
+<br> 
+</ul>
+
+</body>
+</html>

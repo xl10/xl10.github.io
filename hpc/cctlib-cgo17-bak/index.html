@@ -1,0 +1,223 @@
+ <html>
+  <head>
+    <title>CCTLib Tutorial at CGO'17</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="maxwidth">
+        <div class="center">
+          <h1>CCTLib Tutorial</h1>
+          <h3 class="small allcaps">CCTLib: Pinpointing Software Inefficiencies with Fine-grained Program Monitoring</h3> 
+<!--
+	  <div id="navcontainer">
+	  <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#topics-of-interest">Topics of Interest</a></li>
+            <li><a href="#submission-deadlines">Submission & Deadlines</a></li>
+            <li><a href="#committees">Committees</a></li>
+            <li><a href="#history">History</a></li>
+          </ul>
+	  </div>
+-->
+        </div>
+      </div>
+    </header>
+    <div class="maxwidth" id="sitecontent">
+      <div class="alignfix">
+        <div class="center">
+          <p class="small allcaps strong red shadow">Held in Conjunction With 2017 International Symposium on Code Generation and Optimization (CGO'17)<br>
+  Feb 5th, 2017 <br>
+  Austin, Texas, USA</p>
+        </div>
+        <h2 id="overview">Overview</h2>
+<p> Complex code bases with several layers of abstractions have abundant inefficiencies that affect the execution time. Inefficiencies arise from myriad causes such as developer's inattention to performance, inappropriate choice of abstractions, algorithms and data structures, ineffective or detrimental compiler optimizations, among others. Not all inefficiencies are easy to detect or eliminate with compiler optimization; compilers have inherent limitations of static analysis and optimization scope. Classical "hotspot" performance analysis tools are also incapable of identifying many kinds of software inefficiencies. Microscopic observation of whole executions at instruction- and operand-level granularity breaks down abstractions and helps recognize inefficiencies that masquerade in complex programs. </p>
+
+<p>Intel's Pin is a dynamic binary-instrumentation tool widely used in microscopic program introspection such as performance analysis, debugging, software security, among others. Delivering deep insights about executions requires attributing runtime measurements to execution contexts--primarily the calling context. A detailed call path attribution of execution measurements enhances a tool's capability and usability. Pin, however, lacks a native API to collect calling context on an event of interest. Moreover, fine-grain tools such as a data-race detector may require storing call paths on every instruction, which can result in a deluge of call paths. </p>
+
+<p>In this tutorial, we will introduce CCTLib, a library for efficiently collecting execution-wide call paths and associating execution metrics with call paths in any Pin tool. CCTLib is simple to use and effective in improving a Pin-tool’s diagnostic capabilities. We introduce simple, yet effective, CCTLib APIs that offer rich calling context capabilities for Pin tools. We will introduce advanced CCTlib features for attributing every memory access to the corresponding data object in the program. We will introduce CCTLib internals for advanced users. We will show example Pin tools for detecting certain classes of software inefficiencies such as dead stores and redundant computations. Using CCTLib for these clients, we will show how one can pinpoint software inefficiencies in large, complex code bases and show how one can gain a superior understanding of execution profiles. Using CCTLib's pinpointing capabilities we show how one can tune their code to eliminate inefficiencies and obtain significant performance improvements. Finally, we will show an emerging GUI for CCTLib, which facilitates intuitive visualization of huge amounts of data obtained from fine-grained analysis. 
+</p>
+<hr />
+        <h2 id="organization">Organization</h2>
+<ul>
+<li> Milind Chabbi, Hewlett Packard Labs</li>
+<li> Xu Liu, College of William and Mary</li>
+<li> Shasha Wen, College of William and Mary</li>
+</ul>
+<hr />
+<h2 id="publication">Related Publication</h2>
+<ul>
+<li>"RedSpy: Exploring Value Locality in Software", Shasha Wen, Milind Chabbi and Xu Liu, The 22nd International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS), Apr 8-12, 2017, Xi'an, China.</li>
+<li>"Characterizing Emerging Heterogeneous Memory", Du Shen, Xu Liu and Felix Xiaozhu Lin, The 2016 ACM SIGPLAN International Symposium on Memory Management (ISMM), Jun 14, 2016, Santa Barbara, California, USA.</li>
+<li>"Runtime Value Numbering: A Profiling Technique to Pinpoint Redundant Computations", Shasha Wen, Xu Liu and Milind Chabbi, The 24th International Conference on Parallel Architectures and Compilation Techniques (PACT), Oct 18-21, 2015, San Francisco, California, USA.</li>
+<li>"Call Paths for Pin Tools", Milind Chabbi, Xu Liu and John Mellor-Crummey, The 2014 International Symposium on Code Generation and Optimization (CGO), Feb 15-19, 2014, Orlando, Florida, USA.</li>
+<li>"DeadSpy: a tool to pinpoint program inefficiencies", Milind Chabbi and John Mellor-Crummey, The 2012 International Symposium on Code Generation and Optimization (CGO), Mar 31 - Apr 04, 2012, San Jose, California, USA.</li>
+</ul>
+
+<hr />
+<h2 id="program">Program</h2>
+
+<style type="text/css">
+table {
+  line-height: 1.4em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+tr>td:first-child {
+  min-width: 8em;
+}
+tr>* {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+</style>
+To be determined
+<!--
+<table>
+  <tr>
+    <th>Time</th>
+    <th>Event</th>
+  </tr>
+  <tr>
+    <td>8:15 -- 8:30</td>
+    <td>Opening Remarks</td>
+  </tr>
+  <tr>
+    <td colspan="2"><br><h3>Session 1: Debugging and Optimization</h3></td>
+  </tr>
+  <tr>
+    <td>8:30 -- 9:00</td>
+    <td>
+      <strong class="red">Detecting Anomalies in Concurrent Programs based on Dynamic Control Flow Changes</strong>
+      <br>
+      <em>Faheem Ullah, Thomas R. Gross</em>
+    </td>
+  </tr>
+  <tr>
+    <td>9:00 -- 9:30</td>
+    <td>
+      <strong class="red">Controlling the Memory Subscription of Distributed Applications with a Task-Based Runtime System</strong>
+      <br>
+      <em>Marc Sergent, David Goudin, Samuel  Thibault, Olivier Aumage</em>
+    </td>
+  </tr>
+  <tr>
+    <td>9:30 -- 10:00</td>
+    <td>
+      <strong class="red">Reducing Redundant Search in Parallel Graph Mining using Exceptions</strong>
+      <br>
+      <em>Shingo Okuno, Tasuku Hiraishi, Hiroshi Nakashima, Masahiro Yasugi, Jun Sese</em>
+    </td>
+  </tr>
+  <tr>
+    <td>10:00 -- 10:30</td>
+    <td>Coffee Break</td>
+  </tr>
+  <tr>
+    <td colspan="2"><br><h3>Session 2: Heterogenous Computing</h3></td>
+  </tr>
+  <tr>
+    <td>10:30 -- 11:00</td>
+    <td>
+      <strong class="red">Evaluating OpenMP 4.0's Effectiveness as a Heterogeneous Parallel Programming Model</strong>
+      <br>
+      <em>Matt Martineau, Simon McIntosh-Smith, Wayne Gaudin</em>
+    </td>
+  </tr>
+  <tr>
+    <td>11:00 -- 11:30</td>
+    <td>
+      <strong class="red">Employing Compression Solutions under OpenACC</strong>
+      <br>
+      <em>Ebad Salehi, Ahmad Lashgar, Amirali Baniasadi</em>
+    </td>
+  </tr>
+  <tr>
+    <td>11:30 -- 12:00</td>
+    <td>
+      <strong class="red">CAFe: Coarray Fortran Extensions for Heterogeneous Computing</strong>
+      <br>
+      <em>Craig Rasmussen, Matthew Sottile, Soren Rasmussen, Dan Nagle, William Dumas</em>
+    </td>
+  </tr>
+  <tr>
+    <td>12:00 -- 1:30</td>
+    <td>Lunch</td>
+  </tr>
+  <tr>
+    <td colspan="2"><br><h3>Session 3: Parallel Algorithms and Systems</h3></td>
+  </tr>
+  <tr>
+    <td>1:30 -- 2:00</td>
+    <td>
+      <strong class="red">Embedding Concurrent Generators</strong>
+      <br>
+      <em>Peter Mills, Clinton Jeffery</em>
+    </td>
+  </tr>
+  <tr>
+    <td>2:00 -- 2:30</td>
+    <td>
+      <strong class="red">The Case for Binary Rewriting at Runtime for Efficient Implementation of High-Level Programming Models in HPC</strong>
+      <br>
+      <em>Josef Weidendorfer, Jens Breitbart</em>
+    </td>
+  </tr>
+  <tr>
+    <td>2:30 -- 3:00</td>
+    <td>
+      <strong class="red">PTRAM: A Parallel Topology- and Routing-Aware Mapping Framework for Large-Scale HPC Systems</strong>
+      <br>
+      <em>Seyed Hessamedin Mirsadeghi, Ahmad Afsahi</em>
+    </td>
+  </tr>
+  <tr>
+    <td>3:00 -- 3:30</td>
+    <td>Coffee Break</td>
+  </tr>
+  <tr>
+    <td>3:30 -- 4:30</td>
+    <td><a href="slides/Origins_HIPS_keynote_public.pdf"><strong>Keynote: On the Origin of the Programming-Models </strong></a>
+    </td>
+   </tr>
+   <tr><td></td>
+   <td>
+        <em> <strong>
+           Tim Mattson<br> 
+           Tim Mattson is a parallel programmer (Ph.D. Chemistry, UCSC, 1985).  Tim has been with Intel since 1993 where he has worked with brilliant people on great projects such as:  (1)  the first TFLOP computer (ASCI Red), (2) the  OpenMP API for shared memory programming, (3) the OpenCL programming language for heterogeneous platforms, (4) Intel's first TFLOP chip (the 80 core research chip), and (5) Intel's 48 core, SCC research  processor.    Currently Tim is working in the Parallel Computing lab.  He is (1) the PI for our Big Data science and technology center, and (2) leading a small group studying revolutionary approaches to runtime systems for exascale computers.
+            </strong>
+        </em>
+         <br><br>
+   
+Abstract:
+        Programming models multiply seemingly without bound.  They emerge from university and corporate research labs at a rate that outstrips anyone's ability to cope.  For all this prodigious effort, however, only a remarkably tiny number of these models are actually used to any significant degree.<br><br>
+
+In this talk, we will explore the emergence of new programming models, the sociology connected to their origins, and the factors that allow certain ones to succeed.   We will then consider changes that we see just over the horizon in hardware and ask the question; "are we entering a period where new parallel programming models might actually succeed"?<br><br>
+
+We will then discuss our work to understand the commonly found species of programing models with ExaScale ambitions.  In particular, we expose these programming models to our suite of tests (https://github.com/ParRes/Kernels) to explore the survival of the fittest programming model; one that will hopefully carry us into the era of ExaScale computers.<br>
+
+        </em>
+    </td>
+  </tr>
+  <tr>
+    <td>4:30 -- 5:00</td>
+    <td>
+      <strong class="red">A Comparison of High-Level Programming Choices for Incomplete Sparse Factorization Across Different Architectures</strong>
+      <br>
+      <em>Joshua Dennis Booth, Kyungjoo Kim, Sivasankaran Rajamanickam</em>
+    </td>
+  </tr>
+</table>
+-->
+
+      </div>
+    </div>
+    <footer>
+      <div class="maxwidth">
+        <span class="left">2016</span>
+        <span class="right">College of William and Mary</span>
+      </div>
+    </footer>
+  </body>
+</html>
+

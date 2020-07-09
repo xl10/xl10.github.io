@@ -1,0 +1,347 @@
+<html>
+  <head>
+    <title>HIPS 2016 Workshop</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="maxwidth">
+        <div class="center">
+          <h1>HIPS 2016</h1>
+          <h3 class="small allcaps">21th International Workshop on High-Level Parallel Programming Models and Supportive Environments</h3>
+        </div>
+      </div>
+    </header>
+    <div class="maxwidth" id="sitecontent">
+      <div class="alignfix">
+        <div class="center">
+          <p class="small allcaps strong red shadow">Held in Conjunction With</p>
+          
+          <img src="img/logo.jpg" height="120">
+        </div>
+        <h2 id="overview">Overview</h2>
+<p>The 19th HIPS workshop, to be held as a full-day meeting on May 19, 2014 at the IPDPS 2014 conference in Phoenix, focuses on high-level programming of multiprocessors, compute clusters, and massively parallel machines. Like previous workshops in the series, which was established in 1996, this event serves as a forum for research in the areas of parallel applications, language design, compilers, runtime systems, and programming tools. It provides a timely and lightweight forum for scientists and engineers to present the latest ideas and findings in these rapidly changing fields. In our call for papers, we especially encouraged innovative approaches in the areas of emerging programming models for large-scale parallel systems and many-core architectures.</p>
+<hr />
+<h2 id="topics-of-interest">Topics of Interest</h2>
+<p>Topics of interest to the HIPS workshop include but are not limited to:</p>
+<ul>
+<li>New programming languages and constructs for exploiting parallelism and locality</li>
+<li>Experience with and improvements for existing parallel languages and run-time environments such as MPI, OpenMP, Cilk, UPC, Co-array Fortran, X10, and Chapel</li>
+<li>Parallel compilers, programming tools, and environments</li>
+<li>(Scalable) tools for performance analysis, modeling, monitoring, and debugging</li>
+<li>OS and architectural support for parallel programming and debugging</li>
+<li>Software and system support for extreme scalability including fault tolerance</li>
+<li>Programming environments for heterogeneous multicore systems and accelerators such as GPUs, FPGAs, Cells, and MICs</li>
+</ul>
+<hr />
+<h2 id="program">Program</h2>
+
+<style type="text/css">
+table {
+  line-height: 1.4em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+tr>td:first-child {
+  min-width: 8em;
+}
+tr>* {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+</style>
+<table>
+  <tr>
+    <th>Time</th>
+    <th>Event</th>
+  </tr>
+  <tr>
+    <td>8:15 -- 8:30</td>
+    <td>Opening Remarks</td>
+  </tr>
+  <tr>
+    <td>8:30 -- 9:30</td>
+    <td><strong>Title: The (Parallel) BGL: A High-Performance Parallel Graph Algorithms Library </strong>
+    </td>
+   </tr>
+   <tr><td></td>
+   <td>
+        <em> <strong>
+           Andrew Lumsdaine<br> 
+           Professor, Computer Science Department, Indiana University<br>
+           Director, Center for Research in Extreme Scale Technologies (CREST) 
+            </strong>
+        </em>
+         <br><br>
+   
+Abstract:
+
+Graphs and graph algorithms have long been a fundamental abstraction in computer science and many types of data-driven applications - the emerging "fourth pillar" of science - depend on graph computations.  The resource requirements for graph computations can be quite large, however, running graph algorithms on today's HPC systems presents a number of challenges - the paradigms, software, and hardware that have worked well for mainstream scientific applications are not well matched to large-scale graph problems.<br>
+
+In this talk we present the design and implementation of multiple generations of the Boost Graph Library, a library of reusable high-performance software components for graph computation. The original (sequential) BGL applies the paradigm of generic programming to the domain of graph computations. Subsequent (parallel) generations of the BGL were able to be built from the sequntial BGL lifting away the implicit requirements of sequential execution and a single shared address space. This process allows us to create generic algorithms having sequential expression and requiring only the introduction of parallel data structures for parallel execution.  By characterizing these extensions as well as the extension process, we develop general principles and patterns for using (and reusing) generic parallel software libraries. We demonstrate that the resulting algorithm implementations are both efficient and scalable with performance results for several algorithms implemented in the open-source Parallel Boost Graph Library.  We conclude by discussing on-going and future work, most notably the new active-message system being incorporated into PBGL to enable efficient execution on multi-core, hybrid, and exascale architectures.
+        </em>
+    </td>
+  </tr>
+  <tr>
+    <td>9:30 -- 10:00</td>
+    <td>Coffee Break</td>
+  </tr>
+  <tr>
+    <td colspan="2"><br><h3>Session 1: System Support</h3></td>
+  </tr>
+  <tr>
+    <td>10:00 -- 10:30</td>
+    <td>
+      <strong class="red">Bohrium: A Virtual Machine Approach to Portable Parallelism</strong>
+      <br>
+      <em>Mads R. B. Kristensen, Simon Andreas Frimann Lund, Troels Blum, Kenneth Skovhede, Brian Vinter</em>
+    </td>
+  </tr>
+  <tr>
+    <td>10:30 -- 11:00</td>
+    <td>
+      <strong class="red">HATI: Hardware Assisted Thread Isolation for Concurrent C/C++ Programs</strong>
+      <br>
+      <em>Juan Carlos Martinez Santos</em>
+    </td>
+  </tr>
+  <tr>
+    <td>11:00 -- 11:30</td>
+    <td>
+      <strong class="red">A General Model Checking Framework for Various Memory Consistency Models</strong>
+      <br>
+      <em>Tatsuya Abe, Toshiyuki Maeda</em>
+    </td>
+  </tr>
+  <tr>
+    <td>11:30 -- 1:30</td>
+    <td>Lunch</td>
+  </tr>
+  <tr>
+    <td colspan="2"><br><h3>Session 2: Optimization</h3></td>
+  </tr>
+  <tr>
+    <td>1:30 -- 2:00</td>
+    <td>
+      <strong class="red">Autotuning Tensor Transposition</strong>
+      <br>
+      <em>Lai Wei, John Mellor-Crummey</em>
+    </td>
+  </tr>
+  <tr>
+    <td>2:00 -- 2:30</td>
+    <td>
+      <strong class="red">Automatic MPI-IO Tuning with the Periscope Tuning Framework</strong>
+      <br>
+      <em>Weifeng Liu, Isaias A. Compres Urena, Michael Gerndt, Bin Gong</em>
+    </td>
+  </tr>
+  <tr>
+    <td>2:30 -- 3:00</td>
+    <td>
+      <strong class="red">Optimizing Collective Communication in UPC</strong>
+      <br>
+      <em>Jithin Jose, Khaled Hamidouche, Jie Zhang, Akshay Venkatesh, Dhabaleswar Panda</em>
+    </td>
+  </tr>
+  <tr>
+    <td>3:00 -- 3:30</td>
+    <td>Coffee Break</td>
+  </tr>
+  <tr>
+    <td colspan="2"><br><h3>Session 3: Effective Communication</h3></td>
+  </tr>
+  <tr>
+    <td>3:30 -- 4:00</td>
+    <td>
+      <strong class="red">SWIFT: A Transparent and Flexible Communication Layer for PCIe-coupled Accelerators and (Co-)Processors</strong>
+      <br>
+      <em>Stefan Lankes, Simon Pickartz, Pablo Reble, Carsten Clauss</em>
+    </td>
+  </tr>
+  <tr>
+    <td>4:00 -- 4:30</td>
+    <td>
+      <strong class="red">Deterministic Synchronization of Multi-Threaded Programs with Spawn and Merge</strong>
+      <br>
+      <em>Christopher Boelmann, Lorenz Schwittmann, Torben Weis</em>
+    </td>
+  </tr>
+  <tr>
+    <td>4:30 -- 5:00</td>
+    <td>
+      <strong class="red">ABC2: Adaptively Balancing Computation &amp; Communication in a DSM cluster of Multicores for Irregular Applications</strong>
+      <br>
+      <em>Sai Charan Koduru, Keval Vora, Rajiv Gupta</em>
+    </td>
+  </tr>
+</table>
+
+<hr />
+-->
+<h2 id="submission-deadlines">Submission &amp; Deadlines</h2>
+<p>EXTENDED :: New Submission due date: January 24, 2014</p>
+<p>Author notification: March 14, 2014</p>
+<p>Camera-ready papers: March 31, 2014</p>
+<h3 id="paper-submission">Paper Submission</h3>
+<p>Submit papers for the workshop using the EasyChair conference system. 
+<a href="https://www.easychair.org/conferences/?conf=hips2014">
+<em>Submission for Paper</em></a>.</p>
+<h3 id="paper-style">Paper Style</h3>
+<p>The HIPS paper style is identical to the IPDPS paper style. Submitted manuscripts may not exceed 10 single-spaced double-column pages using 10-point size font on 8.5x11 inch pages (IEEE conference style), including figures, tables, and references.</p>
+<h3 id="paper-templates">Paper Templates</h3>
+<ul>
+<li><a href="http://www.ipdps.org/templates/IEEECS_CPS_LaTeX_Letter_2Col.zip">LaTeX package download</a></li>
+<li><a href="http://www.ipdps.org/templates/IEEECS_CPS_8.5x11x2.zip">Word Template download</a></li>
+</ul>
+<hr />
+<h2 id="committees">Committees</h2>
+<h3 id="workshop-chair">Workshop Chair</h3>
+<ul>
+<li><a href="http://www.eecis.udel.edu/~cavazos/">John Cavazos</a>, University of Delaware - Newark, DE</li>
+</ul>
+<h3 id="steering-committee">Steering Committee</h3>
+<ul>
+<li><a href="https://engineering.purdue.edu/~eigenman/">Rudolf Eigenmann</a>, Purdue University - West Lafayette, IN</li>
+<li><a href="http://www.lrr.in.tum.de/~gerndt/home/">Michael Gerndt</a>, Technische UniversitÃ¤t - MÃ¼nchen, Germany</li>
+<li><a href="http://moss.csc.ncsu.edu/~mueller/">Frank Mueller</a>, North Carolina State University - Raleigh, NC</li>
+<li>Craig Rasmussen, University of Oregon - Eugene, OR</li>
+<li><a href="http://people.llnl.gov/schulz6">Martin Schulz</a>, Lawrence Livermore National Laboratory - Livermore, CA</li>
+</ul>
+<h3 id="program-committee">Program Committee</h3>
+<ul>
+<li><a href="http://www.eecg.toronto.edu/~tsa/">Tarek Abdelrahman</a>, University of Toronto - Toronto</li>
+<li><a href="http://bronevetsky.com/">Greg Bronevetsky</a>, Lawrence Livermore National Laboratory - Livermore, CA</li>
+<li><a href="http://homes.cs.washington.edu/~bradc">Brad Chamberlain</a>,Cray - Seattle, WA</li>
+<li><a href="http://www.doc.ic.ac.uk/~afd/">Alastair Donaldson</a>, Imperial College - London, United Kingdom</li>
+<li><a href="http://users.ece.cmu.edu/~franzf/">Franz Franchetti</a>, Carnegie Mellon University - Pittsburgh, PA</li>
+<li><a href="http://benedictgaster.org">Benedict Gaster</a>, Qualcomm </li>
+<li><a href="http://http://www.ide.bth.se/~hgr/">Hakan Grahn</a>, Blekinge Institute of Technology, Sweden</li>
+<li><a href="http://www.linkedin.com/pub/christos-kartsaklis/78/399/375">Christos Kartsaklis</a>, Oak Ridge National Laboratory - Oak Ridge, TN</li>
+<li><a href="http://aces.snu.ac.kr/~jlee">Jaejin Lee</a>, Seoul National University - Seoul, Korea</li>
+<li><a href="http://www.doc.ic.ac.uk/~phjk/">Paul Kelly</a>, Imperial College - London, United Kingdom</li>
+<li><a href="http://osl.iu.edu/~lums">Andrew Lumsdaine</a>, Indiana University - Bloomington, IN </li>
+<li><a href="http://www.timmattson.com">Tim Mattson</a>, Intel Corp. - DuPont, WA </li>
+<li><a href="http://people.llnl.gov/mohror1">Kathryn Mohror</a>, Lawrence Livermore National Laboratory - Livermore, CA</li>
+<li><a href="http://www.rz.rwth-aachen.de">Matthias S. Mueller</a>, RWTH Aachen University- Aachen, Germany</li>
+<li><a href="http://www.cs.unc.edu/~olivier/">Stephen Olivier</a>, University of North Carolina - Chapel Hill, NC</li>
+<li><a href="http://www.linkedin.com/in/antoniupop">Antoniu Pop</a>, University of Manchester - Manchester, United Kingdom</li>
+<li><a href="http://ft.ornl.gov/~rothpc/">Philip Roth</a>, Oak Ridge National Laboratory - Oak Ridge, TN</li>
+<li><a href="http://www.cse.lehigh.edu/~spear">Michael Spear</a>, Lehigh University - Bethlehem, PA</li>
+<li><a href="http://hpc.pnl.gov/people/tallent/">Nathan Tallent</a>, Pacific Northwest National Laboratory - Richland, WA</li>
+<li><a href="http://www.cs.rutgers.edu/~zhang.zheng/index.html">Zheng (Eddy) Zhang</a>, Rutgers University - New Brunswick, NJ</li>
+</ul>
+<hr />
+<h2 id="history">History</h2>
+<table>
+<thead>
+<tr>
+<th align="right">Conference</th>
+<th align="center">Date</th>
+<th align="left">Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><a href="http://computation.llnl.gov/hips2013/">18th HIPS 2013</a></td>
+<td align="center">May 20, 2013</td>
+<td align="left">Boston, MA, USA</td>
+</tr>
+<tr>
+<td align="right"><a href="http://tu-dresden.de/die_tu_dresden/zentrale_einrichtungen/zih/veranstaltungen/workshops/hips/index_html">17th HIPS 2012</a></td>
+<td align="center">May 21, 2012</td>
+<td align="left">Shanghai, China</td>
+</tr>
+<tr>
+<td align="right"><a href="http://www.unixer.de/hips2011/">16th HIPS 2011</a></td>
+<td align="center">May 20, 2011</td>
+<td align="left">Anchorage, Alaska, USA</td>
+</tr>
+<tr>
+<td align="right"><a href="http://www2.fz-juelich.de/jsc/hips2010/">15th HIPS 2010</a></td>
+<td align="center">April 19-23, 2010</td>
+<td align="left">Atlanta, GA, USA</td>
+</tr>
+<tr>
+<td align="right">14th HIPS 2009</td>
+<td align="center">May 25, 2009</td>
+<td align="left">Rome, Italy</td>
+</tr>
+<tr>
+<td align="right">13th HIPS 2008</td>
+<td align="center">April 14, 2008</td>
+<td align="left">Miami, FL, USA</td>
+</tr>
+<tr>
+<td align="right"><a href="http://www.cs.rochester.edu/~cding/Announcements/HIPS07/">12th HIPS 2007</a></td>
+<td align="center">March 26, 2007</td>
+<td align="left">Long Beach, California, USA</td>
+</tr>
+<tr>
+<td align="right">11th HIPS 2006</td>
+<td align="center">April 25, 2006</td>
+<td align="left">Rhodes Island, Greece</td>
+</tr>
+<tr>
+<td align="right">10th HIPS 2005</td>
+<td align="center">April 4, 2005</td>
+<td align="left">Denver, Colorado, USA</td>
+</tr>
+<tr>
+<td align="right"><a href="http://www.cca-forum.org/ipdps-workshop/">9th HIPS 2004</a></td>
+<td align="center">April 26, 2004</td>
+<td align="left">Santa Fe, New Mexico, USA</td>
+</tr>
+<tr>
+<td align="right"><a href="http://www.lrr.in.tum.de/events/hips2003/">8th HIPS 2003</a></td>
+<td align="center">April 22, 2003</td>
+<td align="left">Nice, France</td>
+</tr>
+<tr>
+<td align="right">7th HIPS 2002</td>
+<td align="center">April 15, 2002</td>
+<td align="left">Fort Lauderdale, FL, USA</td>
+</tr>
+<tr>
+<td align="right">6th HIPS 2001</td>
+<td align="center">April 23, 2001</td>
+<td align="left">San Francisco, CA, USA</td>
+</tr>
+<tr>
+<td align="right">5th HIPS 2000</td>
+<td align="center">May 1, 2000</td>
+<td align="left">Cancun, Mexico</td>
+</tr>
+<tr>
+<td align="right">4th HIPS 1999</td>
+<td align="center">April 12, 1999</td>
+<td align="left">San Juan, Puerto Rico, USA</td>
+</tr>
+<tr>
+<td align="right">3rd HIPS 1998</td>
+<td align="center">March 30, 1998</td>
+<td align="left">Orlando, FL, USA</td>
+</tr>
+<tr>
+<td align="right">2nd HIPS 1997</td>
+<td align="center">April 1, 1997</td>
+<td align="left">Geneva, Switzerland</td>
+</tr>
+<tr>
+<td align="right">1st HIPS 1996</td>
+<td align="center">April 16, 1996</td>
+<td align="left">Honolulu, HI, USA</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+    <footer>
+      <div class="maxwidth">
+        <span class="left">&copy;2013</span>
+        <span class="right">University of Delaware</span>
+      </div>
+    </footer>
+  </body>
+</html>
+
