@@ -71,7 +71,7 @@ In this work, we develop DrCCTProf, a fine-grained analyer for ARM architectures
 <h3><strong>Implementation</strong></h3>
 
 <figure>
-<img src="blogimage/overview.pdf" alt="Overview of DrCCTProf" width="250" height="375" class="center">
+<img src="./blogimage/overview.png" alt="Overview of DrCCTProf" width="250" height="375" class="center">
 <figcaption>Figure 1: Overview of DrCCTProf.</figcaption>
 </figure>
 <br>
@@ -127,7 +127,7 @@ DrCCTProf exposes a minimum set of APIs to client tools. The client tools, typic
 We evaluate DrCCTProf on a high-end ARM cluster. We use four nodes, total 128 cores, to evaluate the overhead on the NPB benchmark suite v3.3.1 with workload size C. NPB (aka NAS Parallel Benchmarks) is developed by NASA to evaluate the performance of parallel supercomputers, which has both OpenMP and MPI versions. We evaluate both versions compiled with gcc 7.5.0 -O3 and MPICH 3.3a2. While we evaluate all the NPB benchmarks, we show the common benchmarks in OpenMP and MPI versions. We develop two simple client tools of DrCCTProf -- one for collecting calling contexts for all instructions and the other for collecting all data objects for all memory accesses -- for the evaluation.
 <br><br>
 <figure>
-<img src="blogimage/overhead.png" alt="Overhead measurement" width="1000" height="200" class="center">
+<img src="./blogimage/overhead.png" alt="Overhead measurement" width="1000" height="200" class="center">
 <figcaption>Table 1: Overhead of DrCCTProf.</figcaption>
 </figure>
 <br>
@@ -142,7 +142,7 @@ For data-centric analysis, to associate each memory access to its constituent ob
 We implement a client tool atop DrCCTProf to collect reuse distances to guide data locality optimization. With the support of DrCCTProf, the client obtains the full calling contexts for both use and reuse instructions, as well as the data objects associated with the memory reuses. The client presents all reuse pairs with both code- and data-centric views in the GUI for further investigation. As a unique capability, the client can show an aggregate view of data objects that account for most reuses. The client uses &sim;500 lines of code to enable the powerful reuse distance analysis on ARM architectures.
 <br><br>
 <figure>
-<img src="blogimage/lulesh.pdf" alt="A client tool of DrCCTProf that measures reuse distance for an OpenMP application" width="800" height="1200" class="center">
+<img src="./blogimage/lulesh.png" alt="A client tool of DrCCTProf that measures reuse distance for an OpenMP application" width="800" height="1200" class="center">
 <figcaption>Figure 2: A client tool of DrCCTProf that measures reuse distance for an OpenMP application.</figcaption>
 </figure>
 <br>
