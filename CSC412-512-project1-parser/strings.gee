@@ -1,0 +1,5 @@
+# string test
+
+str = 'abc'
+oth = "123"
+exit
