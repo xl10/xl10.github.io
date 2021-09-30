@@ -1,0 +1,46 @@
+   <!DOCTYPE html>
+<html lang=en>
+  <head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/~noonan/course.css">
+  <title>Type</title>
+</head>
+<body> <a name="top"></a>
+<div class="header">
+<h1>Type</h1>
+</div>
+
+<pre>
+<b>Due</b>: Oct 22, 11:59pm
+<b>Submit Project</b>: type 
+<b>Test Files</b>:  <a href="t2.txt">t2.txt</a> <a href="t3.txt">t3.txt</a> <a href="t4.txt">t4.txt</a> <a href="max.txt">max.txt</a> <a href="maxErr.txt">maxErr.txt</a><b></b> <a href="fact.txt">fact.txt</a> <a href="factErr.txt">factErr.txt</a>
+<b></b>
+<b></b>
+<b>Results</b>:     <a href="t2.out">t2.out</a> <a href="t3.out">t3.out</a> <a href="t4.out">t4.out</a> <a href="max.out">max.out</a> <a href="maxErr.out">maxErr.out</a><b></b> <a href="fact.out">fact.out</a> <a href="factErr.out">factErr.out</a></pre>
+
+<p>
+In this project, you are asked to 
+implement a static type checker for Gee language. The type rules of Gee are the following:</p>
+<ol>
+  <li>Gee programs do not need explicit variable declarations. </li>
+  <li>The values in the test programs contain only <code>number</code> and <code>boolean</code> types of values. No need to consider <code>string </code>or other types.</li>
+  <li>No  test case or assignment will contain the boolean constants True, False. For example, the following kinds of statements won't appear in the test files: v = True; if (x==False). But the following could: v = (x&gt; 0); if (x&gt;y). </li>
+  <li>No implicit type convertions are allowed. So the types of the operands of a binary operator (including the assignment operator) must match with each other.</li>
+</ol>
+<p>You are allowed to
+  develop it based on either your parser developed in the previous
+  project or the paser sent to you by the grader. (The semantic part of the parser is not relevant to this project.)</p>
+<p>Use <em>tipe</em> as the name of the type function of each class. </p>
+<p>The type map described in class can be modeled using a Python
+  dictionary (associative array).  This dictionary, named<em> tm</em>,
+  should be explicitly passed as an argument to each tipe function.</p>
+<p>The order in the output does not matter as long as the error message, if
+  there is any, is printed as the
+  final line.
+<p>
+
+Remember: the tipe function of an expression should not only check the type validity of the expression, but also return the type of the result of the expression.</p>
+<p>Hint: Invoke the type checker after the program parsing has finished.</p>
+<p><hr><p>
+
+</body>	</html>

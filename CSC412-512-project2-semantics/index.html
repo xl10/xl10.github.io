@@ -1,0 +1,60 @@
+   <!DOCTYPE html>
+<html lang=en>
+  <head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/~noonan/course.css">
+  <title>Semantics</title>
+</head>
+<body> <a name="top"></a>
+<div class="header">
+<h1>Semantics</h1></div>
+
+<pre>
+<b>Due</b>: Oct 22, 11:59 PM 
+<b>Submit Project</b>: semantics 
+<b>Test Files</b>:  <a href="fact1.txt">fact1.txt</a> <a href="if1.txt">if1.txt</a> <a href="if2.txt">if2.txt</a>
+<b>Results</b>: <a href="outfact1.txt">outfact1.txt</a> <a href="outif1.txt">outif1.txt</a> <a href="outif2.txt">outif2.txt</a>
+</pre>
+
+<p>
+The basic purpose of this assignment is to 
+implement a dynamically typed version of a subset of Gee.
+In doing so, you should gain a deeper
+understanding of dynamic typing and of an interpreter.
+</p><p>
+
+The state function described in class can be modeled using a Python
+dictionary (associative array).  This dictionary, named <i>state</i>,
+should be explicitly passed as an argument to each meaning function.
+</p><p>
+
+Remember: the meaning of an <b>expression</b> in a state is a <b>value</b>,
+while the meaning of a <b>statement</b> in a state is a new state.
+
+</p>
+
+
+<p><hr><p>
+<h3>Your Assignment</h3>
+
+<ol>
+  <li>  Implement the <code>meaning</code> function for all the relationals,
+  <code>and</code>, <code>or</code> for both numbers and Booleans.  Remember that the
+  meaning of an expression is always a value.  No test case will contain
+  the Boolean constants <code>True</code>, <code>False</code>.</li>
+
+  <li>  Implement the meaning function for the following Abstract
+        Syntax statements:
+    <ol type=a>
+      <li>  Assign.
+      <li>  IfStmt (if-then-else)
+      <li>  WhileStmt.
+      <li>  Block.
+      <li> StmtList
+    </ol>
+    Note that an <i>IfStmt</i> begins with the keyword <code>if</code>, a
+        <i>WhileStmt</i> with the keyword <code>while</code>, and an <i>Assign</i> with
+        an <i>identifier</i> (hint: see factor parse). </li>
+</ol>
+
+</body>	</html>
