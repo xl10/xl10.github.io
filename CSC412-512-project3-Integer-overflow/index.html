@@ -1,0 +1,92 @@
+   
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/~noonan/course.css">
+  <title>Project 3: DrCCTProf Internals</title>
+</head>
+<body> <a name="top"></a>
+<div class="header">
+<h1>Project 3 for CSC 412/512: Leveraging DrCCTProf to Solve a Real Compiler Problem --- Integer Overflow</h1></div>
+
+<b>Due</b>: 11:59 PM, Nov 23</font>
+
+</p><p>
+The purpose of the project is to solve a practical compiler problem: pinpointing integer overflows in binary. You need to submit a client directory in a tar file: drcctlib_integer_overflow.
+</p>
+
+
+<p><hr><p>
+<h3>Use DrCCTProf to pinpoint integer overflows at runtime.</h3>
+<h3><Font color=red>Remember DrCCTProf is available <a href="https://github.com/xuhpclab/drcctprof">via GitHub</a></font></h3>
+
+<p>
+In this project, you will use DrCCTProf to analyze integer instructions. One can determine an integer instruction via its operator. We focus on three type of instructions: (1) LEA instruction, (2) arithmetic instruction (e.g., add, sub), and (3) left bit shifting instruciton (e.g., SAL, SHL). We will add the necessary APIs to help you filter out necessary instructions for analysis. You will need to write the overflow check for each instruction of interest. The algorithm is described as follows.
+</p>
+
+<p>
+For each instruction, we need to investigate the integer type (e.g., 64 bit, 32 bit, 16 bit, 8 bit). We can reason the source and target operands to identify the integer type. We will provide an API to provide the type (length) for each operand. You need to think about an algorithm to figure out the type of the entire computation from the operands. There are some examples to help you understand the problem. You may need to cover other cases.</p>
+
+<p>
+1. int sig_overflow(int a, int b) { return a + b; } <br>
+If we call this instruction as sig_overflow(1<<30, 1 << 30), an integer overflow can happen. <br>
+The assmebly code related to sig_overflow can be found as follows: <br>
+<br>
+0000000000401110 sig_overflow: <br>
+<font style="color:red">  401110:       8d 04 37                lea    (%rdi,%rsi,1),%eax </font> <br>
+  401113:       c3                      retq   <br>
+  401114:       66 2e 0f 1f 84 00 00    nopw   %cs:0x0(%rax,%rax,1) <br>
+  40111b:       00 00 00  <br>
+  40111e:       66 90                   xchg   %ax,%ax <br>
+<br>
+The instruction in red performs the add computation: %rdi holds a and %rsi holds b and %eax = %rdi + %rsi. Here you need to get the type of %rdi and %rsi, both of which are 64-bit. 
+Then you check the type of the target operand %eax, which is 32-bit. We use target operand type to know the computation is based on 32-bit integer type.
+Finally, you use the algorithm below to check the overflow happens or not.
+</p> 
+
+<p>
+2. We have an expression a - b. The assembly code can be <br>
+<br>
+sub %eax %ebx <br>
+<br>
+
+The source operands are %eax and %ebx that represent a and b; the target operand is %ebx. Here we can also use the target operand to reason about the integer type of the computation, which is 32-bit. We then can use the following algorithm to evaluate the values to identify the overflow.
+</p>
+
+<p>
+<b>Algorithm</b>: You will leverage the algorithm in Slide 12 in the integer overflow lecture file. Thus, you need to obtain the values of each source operands. There are three operand types as follow. You need to check their values and perform the comparison. In this project, you can assume each value is always a signed value.
+</p>
+
+<ul>
+  <li>
+  Register 
+  </li>
+  <li>
+  Memory 
+  </li>
+  <li>
+  Immediate number 
+  </li>
+</ul>
+
+<b>Output</b>: The full calling context (printed with the context handle) in a text file that integer overflow happens. This output should be similar to what you have in project 0, but you don't need to count the occurrences. Moreover, integer overflow can happen in multiple contexts, which means integer overflows can happen in multiple locations in a program.
+
+<p>
+<b>Test</b>: We will release a few test cases. Make sure your code can pass the tests. We will use more test cases for grading.
+</p>
+
+<p>
+<b>Extra credits:</b> Integer overflow is still an on-going research, so there are many open questions. I list some directions you can explore with some extra credits. We have some facilities (APIs) in DrCCTProf to help you complete these tasks. More details will be added.
+</p>
+<ol>
+<li>
+Visualizing analysis in a GUI (5 points): DrCCTProf can generate output in a specific format that can be visualized using DrCCTProf View extesion in VSCode. You need to implement this and use VSCode to visualize the results. Besides the client file, you also need to give a screen snapshot of the VSCode that visualizes the analysis result.
+</li>
+<li>
+Using the overflow bit in the state register to detect (5 points) and compare (5 points) it with the approach implemented in this project (i.e., the algorithm in Slide 12). For the detection, you need to implement it. For the comparison, you need to provide a document to compare the results for different test cases you designed. From the document, you can design some test cases and show which approach is better. A starting point for testing is designing overflows with both signed and unsigned integers. 
+</li>
+
+</ol>
+
+</body>	</html>
