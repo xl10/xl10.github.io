@@ -70,7 +70,7 @@ The source operands are %eax and %ebx that represent a and b; the target operand
   </li>
 </ul>
 
-<b>Output</b>: The full calling context (printed with the context handle) in a text file that integer overflow happens. This output should be similar to what you have in project 0, but you don't need to count the occurrences. Moreover, integer overflow can happen in multiple contexts, which means integer overflows can happen in multiple locations in a program.
+<b>Output</b>: The full calling context (printed with the context handle) in a text file showing that where integer overflow happens. This output should be similar to what you have done in project 0, but you don't need to count the occurrences. Moreover, integer overflow can happen in multiple contexts, which means integer overflows can happen at more than one location in a program.
 
 <p>
 <b>Test</b>: We will release a few test cases. Make sure your code can pass the tests. We will use more test cases for grading.
@@ -81,10 +81,10 @@ The source operands are %eax and %ebx that represent a and b; the target operand
 </p>
 <ol>
 <li>
-Visualizing analysis in a GUI (5 points): DrCCTProf can generate output in a specific format that can be visualized using DrCCTProf View extesion in VSCode. You need to implement this and use VSCode to visualize the results. Besides the client file, you also need to give a screen snapshot of the VSCode that visualizes the analysis result.
+Visualizing analysis in a GUI (5 points): DrCCTProf can generate output in a specific format that can be visualized using DrCCTProf View extesion in VSCode. You need to implement this and use VSCode to visualize the results. Besides the client file, you also need to give a screen snapshot of the VSCode that visualizes the analysis result. The details about how to support VSCode and visualize it will be added soon.
 </li>
 <li>
-Using the overflow bit in the state register to detect (5 points) and compare (5 points) it with the approach implemented in this project (i.e., the algorithm in Slide 12). For the detection, you need to implement it. For the comparison, you need to provide a document to compare the results for different test cases you designed. From the document, you can design some test cases and show which approach is better. A starting point for testing is designing overflows with both signed and unsigned integers. 
+Using the overflow bit in the state register to detect (5 points) and compare (5 points) it with the approach implemented in this project (i.e., the algorithm in Slide 12). For the detection, you need to implement it. For the comparison, you need to provide a document to compare the results for different test cases you designed. A starting point for testing is designing overflows with both signed and unsigned integers to check which solution is better. Moreover, in the document, you should describe how you implement the overflow bit solution. 
 </li>
 
 </ol>
