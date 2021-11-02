@@ -22,7 +22,7 @@ The purpose of the project is to solve a practical compiler problem: pinpointing
 <h3><Font color=red>Remember DrCCTProf is available <a href="https://github.com/xuhpclab/drcctprof">via GitHub</a></font></h3>
 
 <p>
-In this project, you will use DrCCTProf to analyze integer instructions. One can determine an integer instruction via its operator. We focus on three type of instructions: (1) LEA instruction, (2) arithmetic instruction (e.g., add, sub), and (3) left bit shifting instruciton (e.g., SAL, SHL). We will add the necessary APIs to help you filter out necessary instructions for analysis. You will need to write the overflow check for each instruction of interest. The algorithm is described as follows.
+In this project, you will use DrCCTProf to analyze integer instructions. One can determine an integer instruction via its operator. We focus on two types of instructions: (1) arithmetic instruction (e.g., add, sub), and (2) left bit shifting instruciton (e.g., SAL, SHL). We will add the necessary APIs to help you filter out necessary instructions for analysis. You will need to write the overflow check for each instruction of interest. The algorithm is described as follows.
 </p>
 
 <p>
@@ -33,15 +33,10 @@ For each instruction, we need to investigate the integer type (e.g., 64 bit, 32 
 If we call this instruction as sig_overflow(1<<30, 1 << 30), an integer overflow can happen. <br>
 The assmebly code related to sig_overflow can be found as follows: <br>
 <br>
-0000000000401110 sig_overflow: <br>
-<font style="color:red">  401110:       8d 04 37                lea    (%rdi,%rsi,1),%eax </font> <br>
-  401113:       c3                      retq   <br>
-  401114:       66 2e 0f 1f 84 00 00    nopw   %cs:0x0(%rax,%rax,1) <br>
-  40111b:       00 00 00  <br>
-  40111e:       66 90                   xchg   %ax,%ax <br>
+add %eax %ebx
 <br>
-The instruction in red performs the add computation: %rdi holds a and %rsi holds b and %eax = %rdi + %rsi. Here you need to get the type of %rdi and %rsi, both of which are 64-bit. 
-Then you check the type of the target operand %eax, which is 32-bit. We use target operand type to know the computation is based on 32-bit integer type.
+The instruction performs the add computation: %eax holds a and %ebx holds b and %ebx = %eax + %ebx. Here you need to get the type of %eax and %ebx, both of which are 32-bit. 
+Then you check the type of the target operand %ebx, which is 32-bit. We use target operand type to know the computation is based on 32-bit integer type.
 Finally, you use the algorithm below to check the overflow happens or not.
 </p> 
 
