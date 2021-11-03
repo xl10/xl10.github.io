@@ -22,11 +22,11 @@ The purpose of the project is to solve a practical compiler problem: pinpointing
 <h3><Font color=red>Remember DrCCTProf is available <a href="https://github.com/xuhpclab/drcctprof">via GitHub</a></font></h3>
 
 <p>
-In this project, you will use DrCCTProf to analyze integer instructions. One can determine an integer instruction via its operator. We focus on two types of instructions: (1) arithmetic instruction (add, sub), and (2) left bit shifting instruciton (SHL). We will add the necessary APIs to help you filter out necessary instructions for analysis. You will need to write the overflow check for each instruction of interest. The algorithm is described as follows.
+In this project, you will use DrCCTProf to analyze integer instructions. One can determine an integer instruction via its operator. We focus on two types of instructions: (1) arithmetic instruction (add, sub), and (2) left bit shifting instruciton (shl). We will add the necessary APIs to help you filter out necessary instructions for analysis. You will need to write the overflow check for each instruction of interest. The algorithm is described as follows.
 </p>
 
 <p>
-For each instruction, we need to investigate the integer type (e.g., 64 bit, 32 bit, 16 bit, 8 bit). We can reason the source and target operands to identify the integer type. We will provide an API to provide the type (length) for each operand. You need to think about an algorithm to figure out the type of the entire computation from the operands. There are some examples to help you understand the problem. You may need to cover other cases.</p>
+For each instruction, we need to investigate the integer type (e.g., 64 bit, 32 bit, 16 bit, 8 bit). We can reason the source and target operands to identify the integer type. We will provide an API to provide the type (length) for each source and target operand. You need to think about an algorithm to figure out the type of the entire computation from the operands. There are some examples to help you understand the problem. You may need to cover other cases.</p>
 
 <p>
 1. int sig_overflow(int a, int b) { return a + b; } <br>
@@ -35,7 +35,7 @@ The assmebly code related to sig_overflow can be found as follows: <br>
 <br>
 add %eax %ebx
 <br>
-The instruction performs the add computation: %eax holds a and %ebx holds b and %ebx = %eax + %ebx. Here you need to get the type of %eax and %ebx, both of which are 32-bit. 
+The instruction performs the add computation: %eax holds a and %ebx holds b and %ebx = %eax + %ebx. Here you need to get the type of %eax and %ebx, both of which are 32-bit (4 bytes). 
 Then you check the type of the target operand %ebx, which is 32-bit. We use target operand type to know the computation is based on 32-bit integer type.
 Finally, you use the algorithm below to check the overflow happens or not.
 </p> 
@@ -50,7 +50,7 @@ The source operands are %eax and %ebx that represent a and b; the target operand
 </p>
 
 <p>
-<b>Algorithm</b>: You will leverage the algorithm in Slide 12 in the integer overflow lecture file. Thus, you need to obtain the values of each source operands. There are three operand types as follow. You need to check their values and perform the comparison. In this project, you can assume each value is always a signed value.
+<b>Algorithm</b>: You will leverage the algorithm in Slide 12 in the integer overflow lecture file. Thus, you need to obtain the values of each source operands. There are three operand types as follow. You need to check their values and perform the comparison. For the left bit shifting instruction, you need to derive your own check for the overflow. In this project, you can assume each value is always a signed value. 
 </p>
 
 <ul>
@@ -68,7 +68,7 @@ The source operands are %eax and %ebx that represent a and b; the target operand
 <b>Output</b>: The full calling context (printed with the context handle) in a text file showing that where integer overflow happens. This output should be similar to what you have done in project 0, but you don't need to count the occurrences. Moreover, integer overflow can happen in multiple contexts, which means integer overflows can happen at more than one location in a program.
 
 <p>
-<b>Test</b>: We will release a few test cases. Make sure your code can pass the tests. We will use more test cases for grading.
+<b>Test</b>: We will release a test program with multiple overflows. Make sure your code can pass the test. We will use more test cases for grading, especially changing the integer sizes (int64_t, int32_t, int16_t, int8_t).
 </p>
 
 <p>
@@ -82,7 +82,7 @@ Visualizing analysis in a GUI (5 points): DrCCTProf can generate output in a spe
 Using the overflow bit in the state register to detect (5 points) and compare (5 points) it with the approach implemented in this project (i.e., the algorithm in Slide 12). For the detection, you need to implement it. For the comparison, you need to provide a document to compare the results for different test cases you designed. A starting point for testing is designing overflows with both signed and unsigned integers to check which solution is better. Moreover, in the document, you should describe how you implement the overflow bit solution. 
 </li>
 <li>
-You can your own thoughts about improving the integer overflows. Please document what your thoughts and try to implement it. We will give some extra credits according to your efforts and insights.
+You can describe your own thoughts about improving the detection of integer overflows. Please document your thoughts and try to implement them. We will give extra credits (up to 10 points) according to your efforts and insights.
 </li>
 
 </ol>
